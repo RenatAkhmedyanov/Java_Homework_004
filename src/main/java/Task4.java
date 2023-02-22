@@ -9,19 +9,23 @@ import java.util.Scanner;
 public class Task4 {
 
     public static void sort(ArrayList<Integer> age, LinkedList<Integer> index){
-        ArrayList<Integer> ageTmp = new ArrayList<>(age);
-        for (int i = 0; i < ageTmp.size() - 1; i++) {
-            if(ageTmp.get(i) > ageTmp.get(i + 1)){
-                int temp = ageTmp.get(i);
-                ageTmp.set(i, ageTmp.get(i + 1));
-                ageTmp.set(i + 1, temp);
+         ArrayList<Integer> ageTmp = new ArrayList<>(age);
+        boolean isSorted = false;
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < ageTmp.size() - 1; i++) {
+                if(ageTmp.get(i) > ageTmp.get(i + 1)){
+                    int temp = ageTmp.get(i);
+                    ageTmp.set(i, ageTmp.get(i + 1));
+                    ageTmp.set(i + 1, temp);
 
-                int temp2 = index.get(i);
-                index.set(i, index.get(i + 1));
-                index.set(i + 1, temp2);
-            }
-
-        }
+                    int temp2 = index.get(i);
+                    index.set(i, index.get(i + 1));
+                    index.set(i + 1, temp2);
+                    isSorted = false;
+       }
+      }
+     }
     }
     public static void main(String[] args) {
         ArrayList<String> lastName = new ArrayList<>();
